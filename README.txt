@@ -41,3 +41,16 @@ append:
 If you want Jenkins to run a code analysis, append:
 
   bin/jenkins-code-analysis
+
+
+PLUGINS
+=======
+
+- Clonedigger: 
+Setup of violations plugin
+The final step, should be to bind the clonedigger's output with the Hudson. So, using the violations plugin, put the '**/clonedigger.xml' string to the CPD field in the violations plugin setup. The clonedigger with --cpd-output will generate PMD's cpd similar output. (I hope there is no problem their XML schema in clonedigger).
+
+That should be all. Now run the build and watch for yourself! Enjoy. 
+
+http://clonedigger.sourceforge.net/hudson_integration.html
+
