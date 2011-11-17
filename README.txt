@@ -2,6 +2,10 @@
 JENKINS BUILDOUT FOR PLONE PROJECTS
 ===============================================================================
 
+buildout.jenkins allows you to easiely set up a buildout that the Jenkins
+CI-Server can use to generate reports for tests, test-coverage and 
+code-analysis.
+
 Buildout
 ========
 
@@ -25,7 +29,7 @@ following lines:
   python2.6 bootstrap.py
   bin/buildout -c jenkins.cfg
 
-If you want Jenkins to only run the test, append:
+If you want Jenkins to run the test only, append the following line: 
 
   bin/jenkins-test
 
