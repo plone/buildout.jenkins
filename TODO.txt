@@ -1,0 +1,10 @@
+ToDo
+====
+
+ [ ] Clean up code and scripts
+
+ [ ] Write documentation (first!)
+
+ [ ] Allow multiple packages for testing/coverage/analysis.
+
+ [ ] Create buildout recipe
