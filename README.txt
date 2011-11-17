@@ -17,7 +17,7 @@ package-name parameter for the package that you want to be tested.
       buildout.cfg
       https://github.com/plone/buildout.jenkins/blob/master/jenkins.cfg
   package-name = plone.app.discussion
-  package-directory = plone/app/discussion
+  package-directory = src/plone.app.discussion
 
 
 Jenkins Job Shell Build Script
