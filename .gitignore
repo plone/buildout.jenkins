@@ -20,6 +20,7 @@
 /.mr.developer.cfg
 /src/*
 *.mo
+/.coverage
 docs/Makefile
 docs/make.bat
 docs/doctrees
