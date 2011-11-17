@@ -21,6 +21,7 @@
 /src/*
 *.mo
 /.coverage
+/coverage.xml
 docs/Makefile
 docs/make.bat
 docs/doctrees
