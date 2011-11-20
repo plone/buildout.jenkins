@@ -6,6 +6,11 @@ buildout.jenkins allows you to easiely set up a buildout that the Jenkins
 CI-Server can use to generate reports for tests, test-coverage and 
 code-analysis.
 
+Dependencies
+============
+
+Make sure that setuptools are installed or you will get the error "AttributeError: 'NoneType' object has no attribute 'location'".
+
 Buildout
 ========
 
