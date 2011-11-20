@@ -20,7 +20,8 @@ package-name parameter for the package that you want to be tested.
   [buildout]
   extends =
       buildout.cfg
-      https://github.com/plone/buildout.jenkins/blob/master/jenkins.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
+      
   package-name = plone.app.discussion
   package-directory = src/plone.app.discussion
 
