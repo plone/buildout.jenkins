@@ -2,6 +2,12 @@
 JENKINS BUILDOUT FOR PLONE PROJECTS
 ===============================================================================
 
+.. note::
+
+  This buildout is currently work-in-progress. If you depend on this buildout
+  please keep in mind that variable names or entire sections might change in 
+  the future without announcement.
+
 buildout.jenkins allows you to easiely set up a buildout that the Jenkins
 CI-Server can use to generate reports for tests, test-coverage and 
 code-analysis.
