@@ -54,6 +54,23 @@ If you want Jenkins to run a code analysis, append::
 
   bin/jenkins-code-analysis
 
+Jenkins Configuration
+=====================
+
+For Jenkins to be able to understand the output of the tests and analyses,
+you will need to configure your instance accordingly.
+
+* Test results with ``bin/jenkins-test`` and ``bin/jenkins-test-coverage``:
+    Configure your Jenkins project's options by enabling `Publish JUnit test
+    result report` and setting `Test report XMLs` to be
+    ``parts/jenkins-test/testreports/*.xml``.
+
+* Test coverage with ``bin/jenkins-test-coverage``:
+    Install and configure the **Cobertura Plugin** following `the instructions
+    <https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin>`_, and
+    configure your project's options such that you enable `Publish Cobertura
+    Coverage Report` and set `Cobertura xml report pattern` to be
+    ``parts/jenkins-test/coverage.xml``.
 
 Plugins
 =======
