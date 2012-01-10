@@ -1,6 +1,8 @@
 ToDo
 ====
 
+ [ ] Write *.log and *.tmp files to parts/jenkins-test.
+
  [ ] Clean up code and scripts
 
  [ ] Write documentation (first!)
