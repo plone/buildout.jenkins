@@ -34,6 +34,18 @@ package-name parameter for the package that you want to be tested::
   package-name = plone.app.discussion
   package-directory = src/plone.app.discussion
 
+If you want to run code analysis (e.g. PEP 8, PyFlakes, ZPTLint), you have to
+include the code-coverage.cfg as well::
+
+  [buildout]
+  extends =
+      buildout.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/code-analysis.cfg
+
+  package-name = plone.app.discussion
+  package-directory = src/plone.app.discussion
+
 
 Jenkins Job Shell Build Script
 ==============================
