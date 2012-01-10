@@ -3,6 +3,11 @@ ToDo
 
  [ ] Write *.log and *.tmp files to parts/jenkins-test.
 
+ [ ] Do not write XMLLint output to the console.
+
+ [ ] Write documentation about how to read the code analysis output with
+     the Jenkins Violations plugin.
+
  [ ] Clean up code and scripts
 
  [ ] Write documentation (first!)
