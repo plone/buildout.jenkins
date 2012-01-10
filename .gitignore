@@ -20,6 +20,8 @@
 /.mr.developer.cfg
 /src/*
 *.mo
+*.log
+*.tmp
 /.coverage
 /coverage.xml
 docs/Makefile
