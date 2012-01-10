@@ -5,12 +5,13 @@ JENKINS BUILDOUT FOR PLONE PROJECTS
 .. note::
 
   This buildout is currently work-in-progress. If you depend on this buildout
-  please keep in mind that variable names or entire sections might change in 
+  please keep in mind that variable names or entire sections might change in
   the future without announcement.
 
 buildout.jenkins allows you to easiely set up a buildout that the Jenkins
-CI-Server can use to generate reports for tests, test-coverage and 
+CI-Server can use to generate reports for tests, test-coverage and
 code-analysis.
+
 
 Dependencies
 ============
@@ -18,19 +19,21 @@ Dependencies
 Make sure that setuptools are installed or you will get the error
 ``AttributeError: 'NoneType' object has no attribute 'location'``.
 
+
 Buildout
 ========
 
-Create a jenkins.cfg that extends your existing buildout.cfg and set the 
+Create a jenkins.cfg that extends your existing buildout.cfg and set the
 package-name parameter for the package that you want to be tested::
 
   [buildout]
   extends =
       buildout.cfg
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
-      
+
   package-name = plone.app.discussion
   package-directory = src/plone.app.discussion
+
 
 Jenkins Job Shell Build Script
 ==============================
@@ -54,6 +57,7 @@ If you want Jenkins to run a code analysis, append::
 
   bin/jenkins-code-analysis
 
+
 Jenkins Configuration
 =====================
 
@@ -72,6 +76,7 @@ you will need to configure your instance accordingly.
     Coverage Report` and set `Cobertura xml report pattern` to be
     ``parts/jenkins-test/coverage.xml``.
 
+
 Plugins
 =======
 
@@ -82,7 +87,6 @@ Plugins
     with ``--cpd-output`` will generate PMD's cpd similar output. (I hope
     there is no problem their XML schema in clonedigger).
 
-    That should be all. Now run the build and watch for yourself! Enjoy. 
+    That should be all. Now run the build and watch for yourself! Enjoy.
 
     http://clonedigger.sourceforge.net/hudson_integration.html
-
