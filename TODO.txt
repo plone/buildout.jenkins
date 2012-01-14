@@ -1,7 +1,7 @@
 ToDo
 ====
 
- [ ] Write *.log and *.tmp files to parts/jenkins-test.
+ [X] Write *.log and *.tmp files to parts/jenkins-test.
 
  [ ] Do not write XMLLint output to the console.
 
