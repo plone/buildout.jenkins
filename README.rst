@@ -41,7 +41,7 @@ include the code-coverage.cfg as well::
   extends =
       buildout.cfg
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
-      https://raw.github.com/plone/buildout.jenkins/master/code-analysis.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/jenkins-code-analysis.cfg
 
   package-name = plone.app.discussion
   package-directory = src/plone.app.discussion
@@ -102,3 +102,8 @@ Plugins
     That should be all. Now run the build and watch for yourself! Enjoy.
 
     http://clonedigger.sourceforge.net/hudson_integration.html
+
+Prerequisits
+============
+
+* Install xmllint (sudo apt-get install libxml2-utils)
