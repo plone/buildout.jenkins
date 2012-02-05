@@ -24,7 +24,8 @@ Buildout
 ========
 
 Create a jenkins.cfg that extends your existing buildout.cfg and set the
-package-name parameter for the package that you want to be tested::
+jenkins-test-eggs parameter for the egss you want to be tested and the
+jenkins-test-directories for test coverage and code analysis::
 
   [buildout]
   extends =
@@ -32,9 +33,10 @@ package-name parameter for the package that you want to be tested::
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
 
   jenkins-test-eggs = plone.app.collection [test]
+  jenkins-test-directories = src/plone.app.collection/plone/app/collection
 
 If you want to run code analysis (e.g. PEP 8, PyFlakes, ZPTLint), you have to
-include the jenkins-code-analysis.cfg as well and set jenkins-package-directories::
+include the jenkins-code-analysis.cfg as well::
 
   [buildout]
   extends =
@@ -43,7 +45,7 @@ include the jenkins-code-analysis.cfg as well and set jenkins-package-directorie
       https://raw.github.com/plone/buildout.jenkins/master/jenkins-code-analysis.cfg
 
   jenkins-test-eggs = plone.app.discussion [test]
-  jenkins-package-directories = src/plone.app.collection/plone/app/collection
+  jenkins-test-directories = src/plone.app.collection/plone/app/collection
 
 It is also possible to run jenkins-test and jenkins-code-coverage on multiple
 packages::
@@ -57,7 +59,7 @@ packages::
   jenkins-test-eggs =
       plone.app.collection [test]
       plone.app.contenttypes [test]
-  jenkins-package-directories =
+  jenkins-test-directories =
       src/plone.app.discussion/plone/app/discussion
       src/plone.app.contenttypes/plone/app/contenttypes
 
