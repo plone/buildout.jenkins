@@ -31,11 +31,10 @@ package-name parameter for the package that you want to be tested::
       buildout.cfg
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
 
-  package-name = plone.app.discussion
-  package-directory = src/plone.app.discussion
+  jenkins-test-eggs = plone.app.collection [test]
 
 If you want to run code analysis (e.g. PEP 8, PyFlakes, ZPTLint), you have to
-include the code-coverage.cfg as well::
+include the jenkins-code-analysis.cfg as well and set jenkins-package-directories::
 
   [buildout]
   extends =
@@ -43,8 +42,24 @@ include the code-coverage.cfg as well::
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
       https://raw.github.com/plone/buildout.jenkins/master/jenkins-code-analysis.cfg
 
-  package-name = plone.app.discussion
-  package-directory = src/plone.app.discussion
+  jenkins-test-eggs = plone.app.discussion [test]
+  jenkins-package-directories = src/plone.app.collection/plone/app/collection
+
+It is also possible to run jenkins-test and jenkins-code-coverage on multiple
+packages::
+
+  [buildout]
+  extends =
+      buildout.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
+      https://raw.github.com/plone/buildout.jenkins/master/jenkins-code-analysis.cfg
+
+  jenkins-test-eggs =
+      plone.app.collection [test]
+      plone.app.contenttypes [test]
+  jenkins-package-directories =
+      src/plone.app.discussion/plone/app/discussion
+      src/plone.app.contenttypes/plone/app/contenttypes
 
 
 Jenkins Job Shell Build Script
