@@ -1,0 +1,46 @@
+Jenkins Code Analysis
+==============================================================================
+
+Expect jenkins code anlysis buildout.
+
+
+PyFlakes
+--------
+
+1) Install the warnings plugin::
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+
+2) Set up a compiler warnings in jenkins configure.
+
+Name::
+
+    pyflakes
+
+Regular Expression:
+
+    ^(.*):([0-9]*):(.*)$
+
+Mapping Script::
+
+    import hudson.plugins.warnings.parser.Warning
+    import hudson.plugins.analysis.util.model.Priority
+
+    String fileName = matcher.group(1)
+    String category = "PyFlakes Error"
+    String lineNumber = matcher.group(2)
+    String message = matcher.group(3)
+
+    return new Warning(fileName, Integer.parseInt(lineNumber), category, "PyFlakes Parser", message, Priority.NORMAL);
+
+.. image:: buildout.jenkins.configure-warnings-pyflakes.png
+   (options)
+
+3) Set up pyflakes warnings for job
+
+Search for compiler warnings => search console =>
+
+parser: pyflakes
+
+.. image:: images/buildout.jenkins.warnings-plugin-pyflakes.png
+
