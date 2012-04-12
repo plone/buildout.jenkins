@@ -8,6 +8,8 @@ ToDo
  [ ] Write documentation about how to read the code analysis output with
      the Jenkins Violations plugin.
 
+ [ ] Use a template for the code-analysis sections.
+
  [ ] Evaluate if we can use flake8 instead of pep8 and pyflakes:
      https://github.com/plone/buildout.deco/blob/master/jenkins.cfg
 
