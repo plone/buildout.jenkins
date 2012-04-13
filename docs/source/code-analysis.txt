@@ -44,3 +44,31 @@ parser: pyflakes
 
 .. image:: images/buildout.jenkins.warnings-plugin-pyflakes.png
 
+
+XMLLint
+-------
+
+1) Install xmllint on the Jenkins server::
+
+    $ sudo apt-get install libxml2-utils
+
+
+2) ...
+
+
+Open Tasks
+----------
+
+1) Install the task scanner plugin::
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin
+
+2) Configure your Jenkins job:
+
+Go to section "Post-build Actions". Check the "Scan workspace for open tasks" checkbox and fill out the settings:
+
+Files to scan: packages/**/*
+
+Files to exclude: packages/**/*.png, packages/**/*.gif,  packages/**/*.jpg, packages/**/*.zip, packages/**/*.ppt, packages/**/*.jar,   packages/**/*.stx, packages/**/CHANGES.txt, packages/**/HISTORY.txt, packages/**/INSTALL.txt, packages/**/*.rst, packages/**/CHANGELOG.txt, packages/**/ChangeLog
+
+Tasks tags: Normal priority: XXX, BBB, TODO
