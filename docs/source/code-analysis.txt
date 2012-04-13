@@ -72,3 +72,6 @@ Files to scan: packages/**/*
 Files to exclude: packages/**/*.png, packages/**/*.gif,  packages/**/*.jpg, packages/**/*.zip, packages/**/*.ppt, packages/**/*.jar,   packages/**/*.stx, packages/**/CHANGES.txt, packages/**/HISTORY.txt, packages/**/INSTALL.txt, packages/**/*.rst, packages/**/CHANGELOG.txt, packages/**/ChangeLog
 
 Tasks tags: Normal priority: XXX, BBB, TODO
+
+
+.. image:: images/buildout.jenkins.open-tasks.png
