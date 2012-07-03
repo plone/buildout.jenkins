@@ -123,4 +123,20 @@ Plugins
 Prerequisits
 ============
 
-* Install xmllint (sudo apt-get install libxml2-utils)
+In order to be able to run some of the code analysis jobs you have to manually
+install some dependencies on the Jenkins machine:
+
+XMLLint
+-------
+
+On Debian/Ubuntu just install the libxml2-utils::
+
+  $ sudo apt-get install libxml2-utils
+
+JSLint
+------
+
+On Debian/Ubuntu you can run jslint on nodejs::
+
+  $ sudo apt-get install nodejs npm
+  $ sudo npm install -g jslint
