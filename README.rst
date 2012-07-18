@@ -99,26 +99,54 @@ you will need to configure your instance accordingly.
     ``parts/jenkins-test/testreports/*.xml``.
 
 * Test coverage with ``bin/jenkins-test-coverage``:
-    Install and configure the **Cobertura Plugin** following `the instructions
-    <https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin>`_, and
-    configure your project's options such that you enable `Publish Cobertura
-    Coverage Report` and set `Cobertura xml report pattern` to be
-    ``parts/jenkins-test/coverage.xml``.
 
+    Plugins recommended:
+    
+    * Cobertura Plugin `read Cobertura installation instructions 
+      <https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin>`_
+       
+    * Violations Plugin `read Violations installation instructions 
+      <https://wiki.jenkins-ci.org/display/JENKINS/Violations>`_
 
-Plugins
-=======
+Post-build actions
+==================
 
-* Clonedigger - Setup of violations plugin:
-    The final step, should be to bind the clonedigger's output with the
-    Hudson. So, using the violations plugin, put the ``**/clonedigger.xml``
-    string to the CPD field in the violations plugin setup. The clonedigger
-    with ``--cpd-output`` will generate PMD's cpd similar output. (I hope
-    there is no problem their XML schema in clonedigger).
+All items are added through the `Add post-build action` button in your
+project.
 
-    That should be all. Now run the build and watch for yourself! Enjoy.
+**Publish JUnit test result report** 
+  Test report XMLs: ``parts/jenkins-test/testreports/*.xml``
+  
+**Publish Coberture Coverage Report**
+  Cobertura xml report pattern: ``parts/jenkins-test/coverage.xml``
+  Other options can stay on their default values
+  
+**Report Violations**
+  Following reports are available for Violations plugin:
+  
+  * **csslint**
+  
+    XML filename pattern: ``parts/jenkins-test/**/csslint.xml``
+    
+  * **jslint**
+  
+    XML filename pattern: ``parts/jenkins-test/**/jshint.xml``
+    
+  * **pep8**
+  
+    XML filename pattern: ``parts/jenkins-test/pep8.log``
+    
+  * **cpd**
+  
+    XML filename pattern: ``parts/jenkins-test/**/clonedigger.xml``
+
+  Clonedigger - Setup of violations plugin:
+    The clonedigger with ``--cpd-output`` will generate PMD's cpd similar 
+    output. (I hope there is no problem their XML schema in clonedigger).
 
     http://clonedigger.sourceforge.net/hudson_integration.html
+
+That should be all. Now run the build and watch for yourself! Enjoy.
 
 Prerequisits
 ============
@@ -133,6 +161,13 @@ On Debian/Ubuntu just install the libxml2-utils::
 
   $ sudo apt-get install libxml2-utils
 
+OHCount
+-------
+
+On Debian/Ubuntu just install the ohcount package::
+
+  $ sudo apt-get install ohcount
+
 JSLint
 ------
 
@@ -140,3 +175,19 @@ On Debian/Ubuntu you can run jslint on nodejs::
 
   $ sudo apt-get install nodejs npm
   $ sudo npm install -g jslint
+
+JSHint
+------
+
+On Debian/Ubuntu you can run jshint on nodejs::
+
+  $ sudo apt-get install nodejs npm
+  $ sudo npm install -g jshint
+
+CSSLint
+-------
+
+On Debian/Ubuntu you can run csslint on nodejs::
+
+  $ sudo apt-get install nodejs npm
+  $ sudo npm install -g csslint
