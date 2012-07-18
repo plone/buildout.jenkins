@@ -132,6 +132,10 @@ project.
 
     XML filename pattern: ``parts/jenkins-test/xml-jshint/**/*.xml``
 
+  * **jslint**
+
+    XML filename pattern: ``parts/jenkins-test/**/jshint.xml``
+
   * **pep8**
 
     XML filename pattern: ``parts/jenkins-test/pep8.log``
