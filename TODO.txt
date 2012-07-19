@@ -5,7 +5,7 @@ ToDo
 
  [ ] Do not write XMLLint output to the console.
 
- [ ] Write documentation about how to read the code analysis output with
+ [X] Write documentation about how to read the code analysis output with
      the Jenkins Violations plugin.
 
  [ ] Use a template for the code-analysis sections.
@@ -13,7 +13,7 @@ ToDo
  [ ] Evaluate if we can use flake8 instead of pep8 and pyflakes:
      https://github.com/plone/buildout.deco/blob/master/jenkins.cfg
 
- [ ] Evaluate js code analysis tools (jslint, jshint):
+ [X] Evaluate js code analysis tools (jslint, jshint):
      https://github.com/plone/buildout.deco/blob/master/jenkins.cfg
 
  [ ] Clean up code and scripts
