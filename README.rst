@@ -126,11 +126,11 @@ project.
   
   * **csslint**
   
-    XML filename pattern: ``parts/jenkins-test/**/csslint.xml``
+    XML filename pattern: ``parts/jenkins-test/xml-csslint/**/*.xml``
     
   * **jslint**
   
-    XML filename pattern: ``parts/jenkins-test/**/jshint.xml``
+    XML filename pattern: ``parts/jenkins-test/xml-jslint/**/*.xml``
     
   * **pep8**
   
