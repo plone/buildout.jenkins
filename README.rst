@@ -101,11 +101,11 @@ you will need to configure your instance accordingly.
 * Test coverage with ``bin/jenkins-test-coverage``:
 
     Plugins recommended:
-    
-    * Cobertura Plugin `read Cobertura installation instructions 
+
+    * Cobertura Plugin `read Cobertura installation instructions
       <https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin>`_
-       
-    * Violations Plugin `read Violations installation instructions 
+
+    * Violations Plugin `read Violations installation instructions
       <https://wiki.jenkins-ci.org/display/JENKINS/Violations>`_
 
 Post-build actions
@@ -114,34 +114,34 @@ Post-build actions
 All items are added through the `Add post-build action` button in your
 project.
 
-**Publish JUnit test result report** 
+**Publish JUnit test result report**
   Test report XMLs: ``parts/jenkins-test/testreports/*.xml``
-  
+
 **Publish Coberture Coverage Report**
   Cobertura xml report pattern: ``parts/jenkins-test/coverage.xml``
   Other options can stay on their default values
-  
+
 **Report Violations**
   Following reports are available for Violations plugin:
-  
+
   * **csslint**
-  
+
     XML filename pattern: ``parts/jenkins-test/xml-csslint/**/*.xml``
-    
+
   * **jslint**
-  
-    XML filename pattern: ``parts/jenkins-test/xml-jslint/**/*.xml``
-    
+
+    XML filename pattern: ``parts/jenkins-test/xml-jshint/**/*.xml``
+
   * **pep8**
-  
+
     XML filename pattern: ``parts/jenkins-test/pep8.log``
-    
+
   * **cpd**
-  
-    XML filename pattern: ``parts/jenkins-test/**/clonedigger.xml``
+
+    XML filename pattern: ``parts/jenkins-test/xml-clonedigger/**/clonedigger.xml``
 
   Clonedigger - Setup of violations plugin:
-    The clonedigger with ``--cpd-output`` will generate PMD's cpd similar 
+    The clonedigger with ``--cpd-output`` will generate PMD's cpd similar
     output. (I hope there is no problem their XML schema in clonedigger).
 
     http://clonedigger.sourceforge.net/hudson_integration.html
