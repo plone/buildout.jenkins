@@ -32,8 +32,7 @@ for pkg in $PACKAGES
 do
     echo -n "Analyse $pkg "
     ${analyse}
-    echo " [ \033[92mOK\033[0m ]"
-#    echo -ne "[ \033[93mFAILED\033[0m ]"
+    echo "...done"
 done
 
 ${after}
