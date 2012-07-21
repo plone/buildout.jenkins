@@ -1,5 +1,7 @@
 #!/bin/sh
 
+START=$(date +%s)
+
 # Headline
 echo
 echo ${title}
@@ -36,5 +38,10 @@ done
 
 ${after}
 
+END=$(date +%s)
+
 echo "--------------------------------------------------------------------------------"
+echo "Duration: $((END - START)) seconds."
 echo "=> ${buildout:jenkins-directory}/${log}"
+
+
