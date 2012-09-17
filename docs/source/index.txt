@@ -6,7 +6,7 @@
 Welcome to buildout.jenkins's documentation!
 ============================================
 
-.. include:: ../../README.txt
+.. include:: ../../README.rst
 
 Contents:
 
