@@ -130,10 +130,9 @@ project.
 
     XML filename pattern: ``parts/jenkins-test/xml-csslint/**/*.xml``
 
-  * **jslint**
+  * **jshint**
 
     XML filename pattern: ``parts/jenkins-test/xml-jshint/**/*.xml``
-
 
   * **pep8**
 
