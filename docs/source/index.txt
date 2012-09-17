@@ -6,12 +6,15 @@
 Welcome to buildout.jenkins's documentation!
 ============================================
 
+.. include:: ../../README.txt
+
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
    code-analysis.txt
+
 
 
 Indices and tables
