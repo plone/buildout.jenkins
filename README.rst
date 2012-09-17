@@ -2,30 +2,17 @@
 JENKINS BUILDOUT FOR PLONE PROJECTS
 ===============================================================================
 
-.. note::
-
-  This buildout is currently work-in-progress. If you depend on this buildout
-  please keep in mind that variable names or entire sections might change in
-  the future without announcement.
-
-buildout.jenkins allows you to easiely set up a buildout that the Jenkins
-CI-Server can use to generate reports for tests, test-coverage and
-code-analysis.
+buildout.jenkins allows you to easiely set up a buildout for Plone projects
+that the Jenkins CI-Server can use to generate reports for tests,
+test-coverage and code-analysis.
 
 
-Dependencies
-============
+Buildout Installation
+=====================
 
-Make sure that setuptools are installed or you will get the error
-``AttributeError: 'NoneType' object has no attribute 'location'``.
-
-
-Buildout
-========
-
-Create a jenkins.cfg that extends your existing buildout.cfg and set the
-jenkins-test-eggs parameter for the egss you want to be tested and the
-jenkins-test-directories for test coverage and code analysis::
+Create a jenkins.cfg file in your buildout directory that extends your
+existing buildout.cfg. Set the 'jenkins-test-eggs' parameter for the eggs
+you want to be tested by jenkins::
 
   [buildout]
   extends =
@@ -33,10 +20,11 @@ jenkins-test-directories for test coverage and code analysis::
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
 
   jenkins-test-eggs = plone.app.collection [test]
-  jenkins-test-directories = src/plone.app.collection/plone/app/collection
 
-If you want to run code analysis (e.g. PEP 8, PyFlakes, ZPTLint), you have to
-include the jenkins-code-analysis.cfg as well::
+If you want to run code analysis tools (e.g. PEP 8, PyFlakes, ZPTLint), just
+extend your 'jenkins.cfg' with the 'jenkins-code-analysis.cfg' file and set
+the 'jenkins-test-directories' parameter to the package directories you
+want to analyze::
 
   [buildout]
   extends =
