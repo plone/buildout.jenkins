@@ -158,6 +158,13 @@ On Debian/Ubuntu just install the ohcount package::
 
   $ sudo apt-get install ohcount
 
+Sloccount
+---------
+
+On Debian/Ubuntu just install the ohcount package::
+
+ $ sudo apt-get install sloccount
+
 JSLint
 ------
 
