@@ -165,6 +165,23 @@ On Debian/Ubuntu just install the ohcount package::
 
  $ sudo apt-get install sloccount
 
+Nodejs
+------
+
+Some code analysis steps require nodejs to be installed. On Debian/Ubuntu
+just install the nodejs and npm package::
+
+  $ sudo apt-get install nodejs npm
+
+You can also install nodejs with a buildout recipe by adding this section to
+your buildout.cfg::
+
+    [jshint]
+    recipe = gp.recipe.node
+    npms = jshint
+    url = http://nodejs.org/dist/v0.8.9/node-v0.8.9.tar.gz
+    scripts = jshint
+
 JSLint
 ------
 
