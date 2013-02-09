@@ -65,6 +65,10 @@ If you want Jenkins to run the test only, append the following line::
 
   bin/jenkins-test
 
+If you want to run Robot Framework test, use::
+
+  bin/jenkins-test-robot
+
 If you want Jenkins to run the test together with a test-coverage analysis
 (suitable for use with the Cobertura Plugin in Jenkins), append::
 
@@ -87,6 +91,15 @@ you will need to configure your instance accordingly.
     Configure your Jenkins project's options by enabling `Publish JUnit test
     result report` and setting `Test report XMLs` to be
     ``parts/jenkins-test/testreports/*.xml``.
+
+* Test results with ``bin/jenkins-test-robot``:
+    Configure your Jenkins project's options by enabling `Publish Robot
+    Framework test results` setting in the `Post-build Actions` to be:
+    - Directory of Robot output: parts/test
+    - Log/Report link: robot_log.html 
+    - Output xml name: robot_output.xml
+    - Report html name: robott_report.html
+    - Log html name: robot_log.html
 
 * Test coverage with ``bin/jenkins-test-coverage``:
 
