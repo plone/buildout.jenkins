@@ -2,30 +2,17 @@
 JENKINS BUILDOUT FOR PLONE PROJECTS
 ===============================================================================
 
-.. note::
-
-  This buildout is currently work-in-progress. If you depend on this buildout
-  please keep in mind that variable names or entire sections might change in
-  the future without announcement.
-
-buildout.jenkins allows you to easiely set up a buildout that the Jenkins
-CI-Server can use to generate reports for tests, test-coverage and
-code-analysis.
+buildout.jenkins allows you to easiely set up a buildout for Plone projects
+that the Jenkins CI-Server can use to generate reports for tests,
+test-coverage and code-analysis.
 
 
-Dependencies
-============
+Buildout Installation
+=====================
 
-Make sure that setuptools are installed or you will get the error
-``AttributeError: 'NoneType' object has no attribute 'location'``.
-
-
-Buildout
-========
-
-Create a jenkins.cfg that extends your existing buildout.cfg and set the
-jenkins-test-eggs parameter for the egss you want to be tested and the
-jenkins-test-directories for test coverage and code analysis::
+Create a jenkins.cfg file in your buildout directory that extends your
+existing buildout.cfg. Set the 'jenkins-test-eggs' parameter for the eggs
+you want to be tested by jenkins::
 
   [buildout]
   extends =
@@ -33,10 +20,11 @@ jenkins-test-directories for test coverage and code analysis::
       https://raw.github.com/plone/buildout.jenkins/master/jenkins.cfg
 
   jenkins-test-eggs = plone.app.collection [test]
-  jenkins-test-directories = src/plone.app.collection/plone/app/collection
 
-If you want to run code analysis (e.g. PEP 8, PyFlakes, ZPTLint), you have to
-include the jenkins-code-analysis.cfg as well::
+If you want to run code analysis tools (e.g. PEP 8, PyFlakes, ZPTLint), just
+extend your 'jenkins.cfg' with the 'jenkins-code-analysis.cfg' file and set
+the 'jenkins-test-directories' parameter to the package directories you
+want to analyze::
 
   [buildout]
   extends =
@@ -77,6 +65,10 @@ If you want Jenkins to run the test only, append the following line::
 
   bin/jenkins-test
 
+If you want to run Robot Framework test, use::
+
+  bin/jenkins-test-robot
+
 If you want Jenkins to run the test together with a test-coverage analysis
 (suitable for use with the Cobertura Plugin in Jenkins), append::
 
@@ -85,6 +77,8 @@ If you want Jenkins to run the test together with a test-coverage analysis
 If you want Jenkins to run a code analysis, append::
 
   bin/jenkins-code-analysis
+
+It is also possible to run only certain code anlysis
 
 
 Jenkins Configuration
@@ -97,6 +91,15 @@ you will need to configure your instance accordingly.
     Configure your Jenkins project's options by enabling `Publish JUnit test
     result report` and setting `Test report XMLs` to be
     ``parts/jenkins-test/testreports/*.xml``.
+
+* Test results with ``bin/jenkins-test-robot``:
+    Configure your Jenkins project's options by enabling `Publish Robot
+    Framework test results` setting in the `Post-build Actions` to be:
+    - Directory of Robot output: parts/test
+    - Log/Report link: robot_log.html 
+    - Output xml name: robot_output.xml
+    - Report html name: robott_report.html
+    - Log html name: robot_log.html
 
 * Test coverage with ``bin/jenkins-test-coverage``:
 
@@ -128,7 +131,7 @@ project.
 
     XML filename pattern: ``parts/jenkins-test/xml-csslint/**/*.xml``
 
-  * **jslint**
+  * **jshint**
 
     XML filename pattern: ``parts/jenkins-test/xml-jshint/**/*.xml``
 
@@ -167,6 +170,30 @@ OHCount
 On Debian/Ubuntu just install the ohcount package::
 
   $ sudo apt-get install ohcount
+
+Sloccount
+---------
+
+On Debian/Ubuntu just install the ohcount package::
+
+ $ sudo apt-get install sloccount
+
+Nodejs
+------
+
+Some code analysis steps require nodejs to be installed. On Debian/Ubuntu
+just install the nodejs and npm package::
+
+  $ sudo apt-get install nodejs npm
+
+You can also install nodejs with a buildout recipe by adding this section to
+your buildout.cfg::
+
+    [jshint]
+    recipe = gp.recipe.node
+    npms = jshint
+    url = http://nodejs.org/dist/v0.8.9/node-v0.8.9.tar.gz
+    scripts = jshint
 
 JSLint
 ------

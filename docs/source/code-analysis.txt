@@ -44,6 +44,125 @@ parser: pyflakes
 
 .. image:: images/buildout.jenkins.warnings-plugin-pyflakes.png
 
+ZPTLint
+-------
+
+1) Install the warnings plugin::
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+
+2) Set up a compiler warnings in jenkins configure.
+
+Name::
+
+    zptlint
+
+Regular Expression:
+
+    ^.*in:\s(\S*)\s*(?:\<class\s')?(\S*)(?:'\>)?:\s(.*)\s*,.*line\s*([0-9]*).*$
+
+Mapping Script::
+
+    import hudson.plugins.warnings.parser.Warning
+    import hudson.plugins.analysis.util.model.Priority
+
+    String fileName = matcher.group(1)
+    String category = matcher.group(2)
+    String lineNumber = matcher.group(4)
+    String message = matcher.group(3)
+
+    return new Warning(fileName, Integer.parseInt(lineNumber), category, "ZPTLint Parser", message, Priority.HIGH);
+
+.. image:: buildout.jenkins.configure-warnings-zptlint.png
+   (options)
+
+3) Set up zptlint warnings for job
+
+Search for compiler warnings => search console =>
+
+parser: zptlint
+
+.. image:: images/buildout.jenkins.warnings-plugin-zptlint.png
+
+
+Flake 8
+-------
+
+1) Install the warnings plugin::
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+
+2) Set up a compiler warnings in jenkins configure.
+
+Name::
+
+    Flake8
+
+Regular Expression:
+
+    ^(.*):([0-9]*):(.*)$
+
+Mapping Script::
+
+    import hudson.plugins.warnings.parser.Warning
+    import hudson.plugins.analysis.util.model.Priority
+
+    String fileName = matcher.group(1)
+    String category = "PyFlakes Error"
+    String lineNumber = matcher.group(2)
+    String message = matcher.group(3)
+
+    return new Warning(fileName, Integer.parseInt(lineNumber), category, "PyFlakes Parser", message, Priority.NORMAL);;
+
+.. image:: buildout.jenkins.configure-warnings-flakes8.png
+   (options)
+
+3) Set up flakes8 warnings for job
+
+Search for compiler warnings => search console =>
+
+parser: flakes8
+
+.. image:: images/buildout.jenkins.warnings-plugin-flakes8.png
+
+
+UTF-8 headers
+-------------
+
+1) Install the warnings plugin::
+
+    https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+
+2) Set up a compiler warnings in jenkins configure.
+
+Name::
+
+    utf-8 headers
+
+Regular Expression:
+
+    (.*)
+
+Mapping Script::
+
+    import hudson.plugins.warnings.parser.Warning
+    import hudson.plugins.analysis.util.model.Priority
+
+    String fileName = matcher.group(1)
+
+    return new Warning(fileName, 1, "utf-8", "encoding", "Missing # -*- coding: utf-8 -*- in python file.", Priority.LOW);
+
+.. image:: buildout.jenkins.configure-warnings-utf-8.png
+   (options)
+
+3) Set up utf-8 warnings for job
+
+Search for compiler warnings => search console =>
+
+parser: utf-8 headers
+
+.. image:: images/buildout.jenkins.warnings-plugin-utf-8.png
+
 
 XMLLint
 -------
