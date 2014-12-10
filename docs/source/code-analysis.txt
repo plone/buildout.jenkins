@@ -100,7 +100,7 @@ Name::
 
 Regular Expression:
 
-    ^(.*):([0-9]*):(.*)$
+    ^(.*):([0-9]*):([0-9]*):(.E[0-9]*)(.*)$
 
 Mapping Script::
 
@@ -108,9 +108,9 @@ Mapping Script::
     import hudson.plugins.analysis.util.model.Priority
 
     String fileName = matcher.group(1)
-    String category = "PyFlakes Error"
     String lineNumber = matcher.group(2)
-    String message = matcher.group(3)
+    String message = matcher.group(5)
+    String category = matcher.group(4)
 
     return new Warning(fileName, Integer.parseInt(lineNumber), category, "PyFlakes Parser", message, Priority.NORMAL);;
 
