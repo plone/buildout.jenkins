@@ -1,6 +1,6 @@
-===============================================================================
+===================================
 JENKINS BUILDOUT FOR PLONE PROJECTS
-===============================================================================
+===================================
 
 buildout.jenkins allows you to easiely set up a buildout for Plone projects
 that the Jenkins CI-Server can use to generate reports for tests,
