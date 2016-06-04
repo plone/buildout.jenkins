@@ -78,7 +78,7 @@ If you want Jenkins to run a code analysis, append::
 
   bin/jenkins-code-analysis
 
-It is also possible to run only certain code anlysis
+It is also possible to run only certain code anlysis tasks.
 
 
 Jenkins Configuration
@@ -122,7 +122,7 @@ project.
 
 **Publish Coberture Coverage Report**
   Cobertura xml report pattern: ``parts/jenkins-test/coverage.xml``
-  Other options can stay on their default values
+  Other options can stay on their default values.
 
 **Report Violations**
   Following reports are available for Violations plugin:
