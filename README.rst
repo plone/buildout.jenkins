@@ -2,7 +2,7 @@
 JENKINS BUILDOUT FOR PLONE PROJECTS
 ===================================
 
-buildout.jenkins allows you to easiely set up a buildout for Plone projects
+buildout.jenkins allows you to easily set up a buildout for Plone projects
 that the Jenkins CI-Server can use to generate reports for tests,
 test-coverage and code-analysis.
 
@@ -78,7 +78,7 @@ If you want Jenkins to run a code analysis, append::
 
   bin/jenkins-code-analysis
 
-It is also possible to run only certain code anlysis
+It is also possible to run only certain code anlysis tasks.
 
 
 Jenkins Configuration
@@ -122,7 +122,7 @@ project.
 
 **Publish Coberture Coverage Report**
   Cobertura xml report pattern: ``parts/jenkins-test/coverage.xml``
-  Other options can stay on their default values
+  Other options can stay on their default values.
 
 **Report Violations**
   Following reports are available for Violations plugin:
